@@ -15,10 +15,10 @@ jobs:
           # These are very useful for debugging
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
-          echo `dirname ${{ github.repository }}`
+          dirname ${{ github.repository }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/production.key
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key
           chmod 600 ~/.ssh/production.key
           cat >>~/.ssh/config <<END
           Host production

@@ -16,8 +16,7 @@ jobs:
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
           echo $(dirname ${{ github.repository }} )
-          export DIRNAME=` $(dirname ${{ github.repository }} )`
-          echo $DIRNAME
+          dirname ${{ github.repository }} 
           basename ${{ github.repository }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
@@ -34,6 +33,7 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
+          DIRNAME: $(dirname  ${{ github.repository }} )
 
       - name: get source code and compile
         run: |

@@ -57,7 +57,7 @@ jobs:
            ssh production 'echo "Type=simple" >> .config/systemd/user/${{ vars.service_name }}'
            ssh production 'echo "Restart=always" >> .config/systemd/user/${{ vars.service_name }}'
            ssh production 'echo "RestartSec=5" >> .config/systemd/user/${{ vars.service_name }}'
-           ssh production 'echo "ExecStart=export VERSION=\"$GITHUB_SHA\";export HTTP__PORT=\"${{ vars.http_port }}\";export WEBSOCKET_PORT==\"${{ vars.websocket_port }}\";mvn exec:java -Dexec.mainClass=uta.cse3310.App" >> .config/systemd/user/${{ vars.service_name }}'
+           ssh production 'echo "ExecStart=export VERSION=\"$GITHUB_SHA\";export HTTP__PORT=\"${{ vars.http_port }}\";export WEBSOCKET_PORT=\"${{ vars.websocket_port }}\";mvn exec:java -Dexec.mainClass=uta.cse3310.App" >> .config/systemd/user/${{ vars.service_name }}'
            ssh production 'echo "WorkingDirectory=$PWD/TicTacToe" >> .config/systemd/user/${{ vars.service_name }}'
            ssh production 'echo "[Install]" >>.config/systemd/user/${{ vars.service_name }}'
            ssh production 'echo "WantedBy=default.target" >>.config/systemd/user/${{ vars.service_name }}'

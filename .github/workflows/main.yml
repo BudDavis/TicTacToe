@@ -20,7 +20,7 @@ jobs:
           echo "Service name = ${{ vars.service_name }}"
           echo "http port = ${{ vars.http_port }}"
           echo "websocket port = ${{ vars.websocket_port }}"
-          echo "version = $GITHUB_SHA"
+          echo "version = $${ github.sha }}"
           # On to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key
@@ -32,12 +32,7 @@ jobs:
             IdentityFile ~/.ssh/production.key
             StrictHostKeyChecking no
           END
-        env:
-          #SSH_USER: ${{ secrets.SSH_USER }}
-          #SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          #SSH_HOST: ${{ secrets.SSH_HOST }}
-          VERSION: $GITHUB_SHA
-                   
+                         
       - name: get source code and compile
         run: |
           echo "deleting the directory ${{ github.event.repository.name }} "

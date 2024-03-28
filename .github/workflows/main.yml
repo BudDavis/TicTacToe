@@ -19,7 +19,7 @@ jobs:
           dirname ${{ github.repository }} 
           basename ${{ github.repository }}
           echo "reponame is ${REPONAME}"
-          echo ${{ github }}
+          echo ${{ toJSON(github) }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key

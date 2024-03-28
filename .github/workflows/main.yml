@@ -35,7 +35,7 @@ jobs:
         
       - name: create systemd unit file
         run: |
-           # without enable-linger, you must be logged in??
+           # without enable-linger, you must be logged in. So, we enable it.
            ssh production "loginctl enable-linger"
            ssh production "mkdir --parents /home/sp24_group1/.config/systemd/user"
            ssh production "rm -f /home/sp24_group1/.config/systemd/user/tictactoe.service"

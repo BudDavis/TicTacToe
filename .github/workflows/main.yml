@@ -17,7 +17,7 @@ jobs:
           echo "github url = ${{ github.server_url }}"
           echo "Owner =  ${{ github.repository_owner }}"
           echo "Repository name = ${{ github.event.repository.name }}"
-          echo "Service name = ${{ env.service_name }}"
+          echo "Service name = ${{ vars.service_name }}"
           # On to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key

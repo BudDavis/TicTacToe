@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: configure SSH
         run: |
+          echo ${GITHUB_REPOSITORY}
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/production.key
           chmod 600 ~/.ssh/production.key

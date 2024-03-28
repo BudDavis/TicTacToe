@@ -18,6 +18,7 @@ jobs:
           echo $(dirname ${{ github.repository }} )
           dirname ${{ github.repository }} 
           basename ${{ github.repository }}
+          echo "dirname is ${DIRNAME}"
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key

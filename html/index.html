@@ -43,7 +43,7 @@
     var connection = null;
 
     var serverUrl;
-    serverUrl = "ws://" + window.location.hostname + location.port + 100;
+    serverUrl = "ws://" + window.location.hostname + (parseInt(location.port) + 100);
     // Create the connection with the server
     connection = new WebSocket(serverUrl);
 

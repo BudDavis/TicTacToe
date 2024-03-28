@@ -32,12 +32,15 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-         
+                   
       - name: get source code and compile
         run: |
-          ssh production "rm -rf ./TicTacToe"
-          ssh production "git clone https://github.com/BudDavis/TicTacToe"
-          ssh production "cd TicTacToe;mvn clean compile package"
+          #ssh production "rm -rf ./TicTacToe"
+          ssh production "rm -rf  ${{ github.event.repository.name }}"
+          #ssh production "git clone https://github.com/BudDavis/TicTacToe"
+          ssh production "git clone ${{ github.server_url }}/${{ github.repository }}"
+          #ssh production "cd TicTacToe;mvn clean compile package"
+          ssh production "cd  ${{ github.event.repository.name }};mvn clean compile package"
         
       - name: create systemd unit file
         run: |

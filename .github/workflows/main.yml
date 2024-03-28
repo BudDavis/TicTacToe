@@ -19,6 +19,7 @@ jobs:
           dirname ${{ github.repository }} 
           basename ${{ github.repository }}
           echo "reponame is ${REPONAME}"
+          echo ${{ github }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key
@@ -34,7 +35,7 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-          REPONAME: `dirname  ${{ github.repository }}`
+          REPONAME: dirname  ${{ github.repository }}
 
       - name: get source code and compile
         run: |

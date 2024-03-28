@@ -15,10 +15,7 @@ jobs:
           # These are very useful for debugging
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
-          echo $(dirname ${{ github.repository }} )
-          dirname ${{ github.repository }} 
-          basename ${{ github.repository }}
-          echo "reponame is ${REPONAME}"
+          echo ${{ github.repository_owner }}
           echo ${{ toJSON(github) }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/

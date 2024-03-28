@@ -240,7 +240,7 @@ public class App extends WebSocketServer {
     port = 9880;
     String WSPort = System.getenv("WEBSOCKET_PORT");
     if (WSPort!=null) {
-      Integer.valueOf(WSPort);
+      port = Integer.valueOf(WSPort);
     }
 
     App A = new App(port);

@@ -14,10 +14,10 @@ jobs:
         run: |
           # These are very useful for debugging
           echo "Repository = ${{ github.repository }}"
-          echo "github url = ${{ github.server.url }}"
+          echo "github url = ${{ github.server_url }}"
           echo "Owner =  ${{ github.repository_owner }}"
-          echo "Repository name = ${{ github.repository_name }}"
-          echo ${{ toJSON(github) }}
+          echo "Repository name = ${{ github.event.repository.name }}"
+          #echo ${{ toJSON(github) }}
           
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/

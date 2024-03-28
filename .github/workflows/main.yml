@@ -15,8 +15,8 @@ jobs:
           # These are very useful for debugging
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
-          echo ${{ github.repository_owner }}
-          
+          echo "Owner =  ${{ github.repository_owner }}"
+          echo ${{ github.repository.name }}
           
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/

@@ -13,10 +13,10 @@ jobs:
       - name: configure SSH
         run: |
           # These are very useful for debugging
-          echo ${{ github.repository }}
-          echo ${{ github.server.url }}
+          echo "Repository = ${{ github.repository }}"
+          echo "github url = ${{ github.server.url }}"
           echo "Owner =  ${{ github.repository_owner }}"
-          echo ${{ github.repository.name }}
+          echo "Repository name = ${{ github.repository.name }}"
           
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/

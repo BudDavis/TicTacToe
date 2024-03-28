@@ -12,13 +12,15 @@ jobs:
     steps:
       - name: configure SSH
         run: |
+          # These are very useful for debugging
           echo ${{ github.repository }}
+          # Now, on to the work at hand.
           mkdir -p ~/.ssh/
           echo "$SSH_KEY" > ~/.ssh/production.key
           chmod 600 ~/.ssh/production.key
           cat >>~/.ssh/config <<END
           Host production
-            HostName $SSH_HOST
+            HostName ${{ secrets.SSH_HOST }}
             User $SSH_USER
             IdentityFile ~/.ssh/production.key
             StrictHostKeyChecking no

@@ -80,3 +80,4 @@ jobs:
            ssh production "systemctl --user enable tictactoe.service"
            ssh production "systemctl --user restart tictactoe.service"
            ssh production "systemctl --user status tictactoe.service"
+           

@@ -225,24 +225,24 @@ public class App extends WebSocketServer {
 
     String HttpPort = System.getenv("HTTP_PORT");
     int port = 9080;
-        if (HttpPort>"") {
-          port = HttpPort.toInteger();
+    if (HttpPort!=null) {
+      port = Integer.valueOf(HttpPort);
     }
-    
+
     // Set up the http server
-    
+
     HttpServer H = new HttpServer(port, "./html");
     H.start();
     System.out.println("http Server started on port: " + port);
 
     // create and start the websocket server
-    
+
     port = 9880;
     String WSPort = System.getenv("WEBSOCKET_PORT");
-    if (WSPort>""){
-      port = WSPort.toInteger();
+    if (WSPort!=null) {
+      Integer.valueOf(WSPort);
     }
-    
+
     App A = new App(port);
     A.setReuseAddr(true);
     A.start();

@@ -17,6 +17,7 @@ jobs:
           echo "github url = ${{ github.server.url }}"
           echo "Owner =  ${{ github.repository_owner }}"
           echo "Repository name = ${{ github.repository_name }}"
+          echo toJSON(github)
           
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/

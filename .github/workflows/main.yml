@@ -21,7 +21,7 @@ jobs:
           echo "http port = ${{ vars.http_port }}"
           echo "websocket port = ${{ vars.websocket_port }}"
           echo "ref = $${ github.ref }}"
-          echo "toJSON(github)"
+          echo "toJSON($${ github })"
           # On to the work at hand.
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/production.key

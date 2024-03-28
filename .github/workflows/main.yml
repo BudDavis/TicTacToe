@@ -16,7 +16,7 @@ jobs:
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
           echo ${{ github.repository_owner }}
-          echo ${{ github.repository.name }}
+          # echo ${{ github.repository.name }}
           #echo ${{ toJSON(github) }}
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
@@ -33,8 +33,7 @@ jobs:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
-           
-
+         
       - name: get source code and compile
         run: |
           ssh production "rm -rf ./TicTacToe"

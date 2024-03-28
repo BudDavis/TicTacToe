@@ -14,14 +14,16 @@ jobs:
         run: |
           # These are very useful for debugging
           echo ${{ github.repository }}
+          echo ${{ github.server.url }}
+          echo `dirname ${{ github.repository }}`
           # Now, on to the work at hand.
           mkdir -p ~/.ssh/
-          echo "$SSH_KEY" > ~/.ssh/production.key
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/production.key
           chmod 600 ~/.ssh/production.key
           cat >>~/.ssh/config <<END
           Host production
             HostName ${{ secrets.SSH_HOST }}
-            User $SSH_USER
+            User ${{ secrets.SSH_USER }}
             IdentityFile ~/.ssh/production.key
             StrictHostKeyChecking no
           END

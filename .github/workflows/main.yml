@@ -47,19 +47,6 @@ jobs:
       - name: create systemd unit file
         run: |
            # without enable-linger, you must be logged in. So, we enable it.
-           # ssh production "loginctl enable-linger"
-           # ssh production "mkdir --parents /home/sp24_group1/.config/systemd/user"
-           # ssh production "rm -f /home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}"
-           # ssh production 'echo "[Unit]" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "Description=tictactoe" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "[Service]" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "Type=simple" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "Restart=always" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "RestartSec=5" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "ExecStart=mvn exec:java -Dexec.mainClass=uta.cse3310.App" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "WorkingDirectory=/home/sp24_group1/TicTacToe" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "[Install]" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
-           # ssh production 'echo "WantedBy=default.target" >>/home/sp24_group1/.config/systemd/user/ ${{ vars.service_name }}'
            ssh production "loginctl enable-linger"
            ssh production "mkdir --parents .config/systemd/user"
            ssh production "rm -f .config/systemd/user/${{ vars.service_name }}"

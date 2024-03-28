@@ -15,7 +15,7 @@ jobs:
           # These are very useful for debugging
           echo ${{ github.repository }}
           echo ${{ github.server.url }}
-          DIRNAME = ${dirname ${{ github.repository }} }
+          DIRNAME = $(dirname ${{ github.repository }} )
           echo $DIRNAME
           basename ${{ github.repository }}
           # Now, on to the work at hand.

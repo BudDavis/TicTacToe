@@ -35,11 +35,10 @@ jobs:
                    
       - name: get source code and compile
         run: |
-          #ssh production "rm -rf ./TicTacToe"
+          echo "deleting the directory ${{ github.event.repository.name }} "
           ssh production "rm -rf  ${{ github.event.repository.name }}"
-          #ssh production "git clone https://github.com/BudDavis/TicTacToe"
+          echo "cloning  ${{ github.server_url }}/${{ github.repository }}"
           ssh production "git clone ${{ github.server_url }}/${{ github.repository }}"
-          #ssh production "cd TicTacToe;mvn clean compile package"
           ssh production "cd  ${{ github.event.repository.name }};mvn clean compile package"
         
       - name: create systemd unit file

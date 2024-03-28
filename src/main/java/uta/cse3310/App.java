@@ -223,15 +223,26 @@ public class App extends WebSocketServer {
 
   public static void main(String[] args) {
 
-    // Set up the http server
+    String HttpPort = System.getEnv("HTTP_PORT");
     int port = 9080;
+        if (HttpPort>"") {
+          port = HttpPort.toInteger();
+    }
+    
+    // Set up the http server
+    
     HttpServer H = new HttpServer(port, "./html");
     H.start();
     System.out.println("http Server started on port: " + port);
 
     // create and start the websocket server
-
+    
     port = 9880;
+    String WSPort = System.getEnv("WEBSOCKET_PORT");
+    if (WSPort>""){
+      port = WSPort.toInteger();
+    }
+    
     App A = new App(port);
     A.setReuseAddr(true);
     A.start();

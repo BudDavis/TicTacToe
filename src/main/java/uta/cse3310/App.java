@@ -237,7 +237,7 @@ public class App extends WebSocketServer {
 
     // create and start the websocket server
 
-    port = 9880;
+    port = 9180;
     String WSPort = System.getenv("WEBSOCKET_PORT");
     if (WSPort!=null) {
       port = Integer.valueOf(WSPort);

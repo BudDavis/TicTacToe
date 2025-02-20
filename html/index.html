@@ -78,7 +78,7 @@
         else if ('CurrentTurn' in obj) {
             // show statistics to everyone
             var t = obj.Stats;
-            if (t) {
+            if (0 && t) {  // broken
                 document.getElementById("timeMsg").innerHTML = "elapsed time " + t.RunningTime;
                 document.getElementById("statMsg").innerHTML =
                     " in progress " + t.GamesInProgress + " XWin " + t.XWins + " OWin " + t.OWins +
